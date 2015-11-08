@@ -2,12 +2,16 @@ package net.jasonfaas;
 
 import java.util.ArrayList;
 
-public class App 
+public class PrimeNumbers
 {
 
     private static ArrayList<Integer> primeNumberList = new ArrayList();
 
-    public int getPrimeNumber(int nthPrime) {
+    public ArrayList<Integer> getPrimeNumberList() {
+        return primeNumberList;
+    }
+
+    public int getNthPrime(int nthPrime) {
 
         if (primeNumberList.size() == 0) {
             primeNumberList.add(2);
@@ -30,5 +34,19 @@ public class App
             }
         }
         return true;
+    }
+
+    public void clearPrimeNumberList() {
+        primeNumberList = new ArrayList<>();
+    }
+
+    public int getLargestPrime(int secondsToWait) {
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.start();
+        int nthPrimeGottenTo = 1;
+        for (; stopwatch.getContinuousTimelapse() / 1000 < secondsToWait; nthPrimeGottenTo++) {
+            getNthPrime(nthPrimeGottenTo);
+        }
+        return nthPrimeGottenTo;
     }
 }
