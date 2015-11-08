@@ -1,4 +1,7 @@
-package net.jasonfaas;
+package net.jasonfaas.servlet;
+
+import net.jasonfaas.utility.PrimeNumbers;
+import net.jasonfaas.utility.Stopwatch;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,13 +24,18 @@ public class HelloServlet extends HttpServlet
         response.getWriter().println("<h1>Hello Servlet</h1>");
         response.getWriter().println("<br>1st Prime Number=" + primeNumbers.getNthPrime(1));
         response.getWriter().println("<br>2nd Prime Number=" + primeNumbers.getNthPrime(2));
-        response.getWriter().println("<br>10th Prime Number=" + primeNumbers.getNthPrime(10));
 
-        int largeNumberToTest = 500;
+        int largeNumberToTest = 10;
+        if (request.getParameter("byNth") != null) {
+            largeNumberToTest = Integer.parseInt(request.getParameter("byNth"));
+        }
         response.getWriter().println("<br>" + largeNumberToTest + "th Prime Number=" + primeNumbers.getNthPrime(largeNumberToTest));
         primeNumbers.clearPrimeNumberList();
 
-        int secondsToTest = 5;
+        int secondsToTest = 2;
+        if (request.getParameter("byTime") != null) {
+            secondsToTest = Integer.parseInt(request.getParameter("byTime"));
+        }
         int nthPrimeGottenTo = primeNumbers.getLargestPrime(secondsToTest);
         int primeNumberAfterSoManySeconds = primeNumbers.getNthPrime(nthPrimeGottenTo);
         response.getWriter().println("<br>Largest Prime after " + secondsToTest + " seconds=" + primeNumberAfterSoManySeconds);

@@ -1,5 +1,6 @@
 package net.jasonfaas;
 
+import net.jasonfaas.utility.Stopwatch;
 import org.junit.Assert;
 import org.junit.Test;
 

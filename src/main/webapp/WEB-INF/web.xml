@@ -8,17 +8,17 @@
 
   <servlet>
     <servlet-name>Hello</servlet-name>
-    <servlet-class>net.jasonfaas.HelloServlet</servlet-class>
+    <servlet-class>net.jasonfaas.servlet.HelloServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Hello</servlet-name>
-    <url-pattern>/hello/*</url-pattern>
+    <url-pattern>/hello</url-pattern>
   </servlet-mapping>
 
 
   <servlet>
     <servlet-name>QueryParams</servlet-name>
-    <servlet-class>net.jasonfaas.QueryParams</servlet-class>
+    <servlet-class>net.jasonfaas.servlet.QueryParams</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>QueryParams</servlet-name>

@@ -1,6 +1,7 @@
 package net.jasonfaas;
 
 
+import net.jasonfaas.utility.PrimeNumbers;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Before;

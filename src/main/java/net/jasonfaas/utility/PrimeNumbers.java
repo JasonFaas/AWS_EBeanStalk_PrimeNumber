@@ -1,4 +1,6 @@
-package net.jasonfaas;
+package net.jasonfaas.utility;
+
+import net.jasonfaas.utility.Stopwatch;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package net.jasonfaas;
+package net.jasonfaas.utility;
 
 import org.joda.time.DateTime;
 
