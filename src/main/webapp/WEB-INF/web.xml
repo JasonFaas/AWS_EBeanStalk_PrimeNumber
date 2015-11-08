@@ -15,4 +15,14 @@
     <url-pattern>/hello/*</url-pattern>
   </servlet-mapping>
 
+
+  <servlet>
+    <servlet-name>QueryParams</servlet-name>
+    <servlet-class>net.jasonfaas.QueryParams</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryParams</servlet-name>
+    <url-pattern>/queryParams</url-pattern>
+  </servlet-mapping>
+
 </web-app>

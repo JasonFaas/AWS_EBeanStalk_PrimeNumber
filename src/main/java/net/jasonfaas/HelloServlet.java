@@ -10,6 +10,7 @@ public class HelloServlet extends HttpServlet
 {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.start();
 
