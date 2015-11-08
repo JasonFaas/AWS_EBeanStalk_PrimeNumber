@@ -11,11 +11,20 @@ import java.io.IOException;
 
 public class HelloServlet extends HttpServlet
 {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
 
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.start();
+
+
+        response.getWriter().println("<form name=\"loginForm\" method=\"post\" action=\"hello\">");
+
 
         PrimeNumbers primeNumbers = new PrimeNumbers();
 
@@ -31,6 +40,7 @@ public class HelloServlet extends HttpServlet
         }
         response.getWriter().println("<br>" + largeNumberToTest + "th Prime Number=" + primeNumbers.getNthPrime(largeNumberToTest));
         primeNumbers.clearPrimeNumberList();
+        response.getWriter().println("<input type=\"text\" name=\"byNth\" value=\"" + largeNumberToTest + "\"/> ");
 
         int secondsToTest = 2;
         if (request.getParameter("byTime") != null) {
@@ -40,6 +50,13 @@ public class HelloServlet extends HttpServlet
         int primeNumberAfterSoManySeconds = primeNumbers.getNthPrime(nthPrimeGottenTo);
         response.getWriter().println("<br>Largest Prime after " + secondsToTest + " seconds=" + primeNumberAfterSoManySeconds);
         primeNumbers.clearPrimeNumberList();
+        response.getWriter().println("<input type=\"text\" name=\"byTime\" value=\"" + secondsToTest + "\"/> ");
+
+        response.getWriter().println("<p><input type=\"submit\" value=\"Submit\">");
+        response.getWriter().println("<p><button class=\"btn\" value=\"save\"  id=\"action\" onclick=\"submitForm(this)\"></button>");
+
+
+        response.getWriter().println("</form>");
 
         stopwatch.stop();
         response.getWriter().println("<br><br>Time Taken " + stopwatch.getTimelapse() + " ms");
